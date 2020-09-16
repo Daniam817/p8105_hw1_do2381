@@ -16,7 +16,7 @@ library( tidyverse)
 
 **Create a data frame with the specified elements.**
 
-```{Create Df}
+```{Create Df, eval = FALSE}
 
 prob1.df = tibble(
   vec.samp = rnorm(10),
@@ -28,7 +28,7 @@ prob1.df = tibble(
 
 **The mean of each variable.**
 
-```{Mean}
+```{Mean, eval = FALSE}
 mean(pull(prob1.df, vec.samp))
 mean(pull(prob1.df, vec.samp.pos))
 mean(pull(prob1.df, vec.char))
@@ -39,7 +39,7 @@ I get mean values for the vector sample, and the vector sample with the logical 
 
 **This is each variable as a numeric**
 
-```{As numeric}
+```{As numeric, eval = FALSE}
 
 as.numeric(pull(prob1.df, vec.samp.pos))
 as.numeric(pull(prob1.df, vec.char))
@@ -54,7 +54,7 @@ When I convert the factor variable, I get a collection of 1s 2s and 3s. I think 
 
 
 
-```{SecondChunk}
+```{SecondChunk, eval = FALSE}
 
 num.samp.pos = as.numeric(pull(prob1.df, vec.samp))
 fact.samp.pos = as.factor(pull(prob1.df, vec.samp))
@@ -71,7 +71,7 @@ data("penguins", package = "palmerpenguins")
 summary(penguins)
 ```
 
-This dataset includes the 8 variables:
+This dataset includes the following variables:
 
 * Species
   * Adelie (152)
