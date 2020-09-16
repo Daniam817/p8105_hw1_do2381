@@ -1,0 +1,66 @@
+---
+title: "p8105_hw1_do2381"
+author: "Daniel Ojeranti"
+date: "9/13/2020"
+output: github_document
+---
+
+This is my solution to HW1
+
+```{r}
+ library( tidyverse)
+```
+# Problem 1
+
+Create a data frame with the specified elements.
+
+```{Create Df}
+prob1.df = tibble(
+  vec.samp = rnorm(10),
+  vec.samp.pos = vec.samp > 0,
+  vec.char = c("Jordan", "LeBron", "Magic", "Giannis", "Harden", "Westbrook", "Booker",                      "Trae", "Paul", "Kahwi"),
+  vec.fact = factor(c("Great", "Great", "Great", "Good", "Good",                                           "Okay", "Okay", "Good", "Good", "Good"))
+)
+```
+
+Take the mean
+
+```{mean}
+mean(pull(prob1.df, vec.samp))
+mean(pull(prob1.df, vec.samp.pos))
+mean(pull(prob1.df, vec.char))
+mean(pull(prob1.df, vec.fact))
+```
+
+I can take the mean of numbers and logical but I can not of characters or factors.
+
+```{numeric}
+as.numeric(pull(prob1.df, vec.samp))
+as.numeric(pull(prob1.df, vec.samp.pos))
+as.numeric(pull(prob1.df, vec.char))
+as.numeric(pull(prob1.df, vec.fact))
+```
+
+# Problem 2
+
+```{r}
+
+data("penguins", package = "palmerpenguins")
+
+summary(penguins)
+flipper.length.mean = mean(pull(penguins, flipper_length_mm),na.rm = TRUE)
+flipper.length.mean
+nrow(penguins)
+ncol(penguins)
+
+```
+
+The size of the penguin dataset is a `nrow(penguins)` by `ncol(penguins)`
+The mean flipper length is `r flipper.length.mean` .
+
+```{Scatterplot}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("Penguin_Scatter_Plot.pdf")
+```
+
+
